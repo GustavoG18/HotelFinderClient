@@ -1,35 +1,65 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useState, useEffect } from "react";
+import Home from "./pages/client/Home";
+import HomeAdmin from "./pages/admin/HomeAdmin";
+import ProtectedRoute from "./components/ProtectedRoute";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [user, setUser] = useState({
+    _id: "64fc744a62a8d62b7de34a90",
+    name: "Gustavo",
+    lastname: "Guerrero Fandiño",
+    birthday: "2023-09-09T04:11:14.528Z",
+    gender: "Masculino",
+    type_of_document: "Cedula",
+    number_of_document: "1234093091",
+    email: "gustavo@gguerrero.co",
+    phone_number: "3008913618",
+    password: "admin123_",
+    rol: "Usuario",
+    __v: 0,
+  });
+
+  // useEffect(() => {
+  //   const fillUser = () => {
+  //     setUser({
+  //       _id: "64fc744a62a8d62b7de34a90",
+  //       name: "Gustavo",
+  //       lastname: "Guerrero Fandiño",
+  //       birthday: "2023-09-09T04:11:14.528Z",
+  //       gender: "Masculino",
+  //       type_of_document: "Cedula",
+  //       number_of_document: "1234093091",
+  //       email: "gustavo@gguerrero.co",
+  //       phone_number: "3008913618",
+  //       password: "admin123_",
+  //       rol: "Administrador",
+  //       __v: 0,
+  //     });
+  //   };
+  //   if (!user) {
+  //     fillUser();
+  //   }
+  // }, [user]);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute isAllowed={user.rol === "Administrador"}>
+                <HomeAdmin />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/login" element={<h1>Login</h1>} />
+        </Routes>
+      </BrowserRouter>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
