@@ -4,7 +4,9 @@ const UserContext = createContext(undefined);
 
 // eslint-disable-next-line react/prop-types
 export const UserProvider = ({ children }) => {
-  const [state, setState] = useState(undefined);
+  const [state, setState] = useState({
+    rol: "Usuario",
+  });
 
   return (
     <UserContext.Provider
