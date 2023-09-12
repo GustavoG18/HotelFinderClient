@@ -11,23 +11,26 @@ import {
 import axios from "axios";
 import theme from "../../../theme";
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../../../context/UserContext";
 import BodyAuthenticationLogin from "../BodyAuthenticationLogin/BodyAuthenticationLogin";
 import BodyAuthenticationRegister from "../BodyAuthenticationRegister/BodyAuthenticationRegister";
-
 // eslint-disable-next-line react/prop-types
 const DialogAuthentication = ({ isOpen, onClose }) => {
   const { colorMode } = useColorMode();
   const cancelRef = useRef();
   const [isLogin, setIsLogin] = useState(true);
   const toast = useToast();
+  const { setUser } = useUserContext();
+  const navigate = useNavigate();
 
   const handleSubmitLogin = async (value) => {
     try {
       const { data } = await axios.get("http://localhost:3000/user/getUser", {
         params: value,
       });
-      console.log(data);
       if (data.length) {
+        setUser(data[0]);
         toast({
           title: "Successful login.",
           description: `Welcome sr ${data[0].name}`,
@@ -36,6 +39,11 @@ const DialogAuthentication = ({ isOpen, onClose }) => {
           duration: 5000,
           isClosable: true,
         });
+        if (data[0].rol === "Administrador") {
+          navigate("/admin");
+        } else {
+          navigate("/");
+        }
       } else {
         toast({
           title: "Incorrect username or password",
@@ -61,6 +69,7 @@ const DialogAuthentication = ({ isOpen, onClose }) => {
           : "http://localhost:3000/user/createUser";
       const { data } = await axios.post(url, value);
       if (data) {
+        setUser(data);
         toast({
           title: "Successful Register.",
           description: `Welcome sr ${data.name}`,
@@ -69,6 +78,11 @@ const DialogAuthentication = ({ isOpen, onClose }) => {
           duration: 5000,
           isClosable: true,
         });
+        if (data.rol === "Administrador") {
+          navigate("/admin");
+        } else {
+          navigate("/");
+        }
       }
       onClose();
     } catch (error) {
