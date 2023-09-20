@@ -13,7 +13,7 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import theme from "../../../theme";
-// import SearchBar from "../../../components/SearchBar";
+import SearchBar from "../../../components/SearchBar";
 import NavBar from "../../../components/NavBar/NavBar";
 import * as styles from "./Home.styled.js";
 import { useEffect, useState } from "react";
@@ -92,11 +92,11 @@ const Home = () => {
           <Text color={theme.colors.white} fontSize="xl" mb={2}>
             Search low prices on hotels, homes and much more...
           </Text>
-          {/* <SearchBar
+          <SearchBar
             location={location}
             setLocation={setLocation}
             handleSubmit={handleSubmit}
-          /> */}
+          />
         </Flex>
       </Box>
       {rooms.length ? (
