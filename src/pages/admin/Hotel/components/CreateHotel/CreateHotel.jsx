@@ -55,7 +55,7 @@ const CreateHotel = ({ hotel = {}, setSelectedHotel, setViewHotels }) => {
           id_user: user._id,
         };
         const { status } = await axios.post(
-          "http://localhost:3000/hotel/createHotel",
+          "https://hotelfinderserver.azurewebsites.net/hotel/createHotel",
           dataToSend
         );
         if (status === 200) {
@@ -93,7 +93,7 @@ const CreateHotel = ({ hotel = {}, setSelectedHotel, setViewHotels }) => {
     try {
       const { _id, enabled } = hotel;
       const response = await axios.put(
-        "http://localhost:3000/hotel/enabledHotel",
+        "https://hotelfinderserver.azurewebsites.net/hotel/enabledHotel",
         {
           _id,
           enabled: !enabled,
@@ -137,7 +137,7 @@ const CreateHotel = ({ hotel = {}, setSelectedHotel, setViewHotels }) => {
           id_user: user._id,
         };
         const { status } = await axios.put(
-          "http://localhost:3000/hotel/updateHotel",
+          "https://hotelfinderserver.azurewebsites.net/hotel/updateHotel",
           dataToSend
         );
         if (status === 200) {

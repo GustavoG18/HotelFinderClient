@@ -13,7 +13,7 @@ const ListHotels = ({ setViewHotels, setSelectedHotel }) => {
     const getHotels = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:3000/hotel/getAllHotelByUser",
+          "https://hotelfinderserver.azurewebsites.net/hotel/getAllHotelByUser",
           {
             params: {
               userId: user._id,

@@ -26,13 +26,13 @@ const CardReservation = ({ reservation }) => {
     const getData = async () => {
       try {
         const { data: hotel } = await axios.get(
-          "http://localhost:3000/hotel/getHotel",
+          "https://hotelfinderserver.azurewebsites.net/hotel/getHotel",
           {
             params: { hotelId: id_hotel },
           }
         );
         const { data: room } = await axios.get(
-          "http://localhost:3000/hotel/room/getRoom",
+          "https://hotelfinderserver.azurewebsites.net/hotel/room/getRoom",
           {
             params: { idRoom: id_room },
           }

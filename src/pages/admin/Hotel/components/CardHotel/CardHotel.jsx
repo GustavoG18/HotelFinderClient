@@ -24,7 +24,7 @@ const CardHotel = ({ hotel, setHotels, setViewHotels, setSelectedHotel }) => {
     try {
       const { _id, enabled } = hotel;
       const response = await axios.put(
-        "http://localhost:3000/hotel/enabledHotel",
+        "https://hotelfinderserver.azurewebsites.net/hotel/enabledHotel",
         {
           _id,
           enabled: !enabled,

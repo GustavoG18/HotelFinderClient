@@ -12,7 +12,7 @@ const ListReservations = () => {
     const getReservations = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:3000/reservation/getAllReservationByUserAdmin",
+          "https://hotelfinderserver.azurewebsites.net/reservation/getAllReservationByUserAdmin",
           {
             params: {
               id_user: user._id,

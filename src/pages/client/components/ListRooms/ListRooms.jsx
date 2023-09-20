@@ -176,7 +176,7 @@ const ListRooms = ({ room, number_of_persons, startDate, endDate }) => {
                 console.log(guests, contact_emergency);
                 try {
                   const { data } = await axios.post(
-                    "http://localhost:3000/reservation/createReservation",
+                    "https://hotelfinderserver.azurewebsites.net/reservation/createReservation",
                     {
                       start_date: startDate,
                       end_date: endDate,

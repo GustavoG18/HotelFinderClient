@@ -31,7 +31,7 @@ const RoomAccordionItem = ({ roomId, roomCreated }) => {
     const getRoom = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:3000/hotel/room/getRoom",
+          "https://hotelfinderserver.azurewebsites.net/hotel/room/getRoom",
           {
             params: {
               idRoom: roomId,
@@ -56,7 +56,7 @@ const RoomAccordionItem = ({ roomId, roomCreated }) => {
       const { _id, enabled } = room;
       console.log("Look", _id, room);
       const { data } = await axios.put(
-        "http://localhost:3000/hotel/room/enabledRoom",
+        "https://hotelfinderserver.azurewebsites.net/hotel/room/enabledRoom",
         { idRoom: _id, enabled: !enabled }
       );
       setRoom(data);
@@ -81,7 +81,7 @@ const RoomAccordionItem = ({ roomId, roomCreated }) => {
   const handleUpdateRoom = async (values) => {
     try {
       const { data } = await axios.put(
-        "http://localhost:3000/hotel/room/updateRoom",
+        "https://hotelfinderserver.azurewebsites.net/hotel/room/updateRoom",
         values
       );
       setRoom(data);

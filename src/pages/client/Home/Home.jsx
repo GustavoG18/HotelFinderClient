@@ -46,7 +46,7 @@ const Home = () => {
     const getRooms = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:3000/hotel/room/getAllRooms",
+          "https://hotelfinderserver.azurewebsites.net/hotel/room/getAllRooms",
           {
             params: {
               location,

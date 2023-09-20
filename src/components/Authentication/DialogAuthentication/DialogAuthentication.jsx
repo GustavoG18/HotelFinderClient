@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../../../context/UserContext";
 import BodyAuthenticationLogin from "../BodyAuthenticationLogin/BodyAuthenticationLogin";
 import BodyAuthenticationRegister from "../BodyAuthenticationRegister/BodyAuthenticationRegister";
+
 // eslint-disable-next-line react/prop-types
 const DialogAuthentication = ({ isOpen, onClose }) => {
   const { colorMode } = useColorMode();
@@ -26,9 +27,12 @@ const DialogAuthentication = ({ isOpen, onClose }) => {
 
   const handleSubmitLogin = async (value) => {
     try {
-      const { data } = await axios.get("http://localhost:3000/user/getUser", {
-        params: value,
-      });
+      const { data } = await axios.get(
+        `https://hotelfinderserver.azurewebsites.net/user/getUser`,
+        {
+          params: value,
+        }
+      );
       if (data.length) {
         localStorage.setItem("userData", JSON.stringify(data[0]));
         setUser(data[0]);
@@ -66,8 +70,8 @@ const DialogAuthentication = ({ isOpen, onClose }) => {
       const { admin } = value;
       const url =
         admin === "admin"
-          ? "http://localhost:3000/user/createUserAdmin"
-          : "http://localhost:3000/user/createUser";
+          ? "https://hotelfinderserver.azurewebsites.net/user/createUserAdmin"
+          : "https://hotelfinderserver.azurewebsites.net/user/createUser";
       const { data } = await axios.post(url, value);
       if (data) {
         localStorage.setItem("userData", JSON.stringify(data));

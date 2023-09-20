@@ -73,7 +73,7 @@ const DialogCreateRoom = ({
   const handleSubmit = async (value) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/hotel/room/createRoom",
+        "https://hotelfinderserver.azurewebsites.net/hotel/room/createRoom",
         value
       );
       setHotelSelected((prev) => {
