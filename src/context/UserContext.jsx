@@ -4,9 +4,14 @@ const UserContext = createContext(undefined);
 
 // eslint-disable-next-line react/prop-types
 export const UserProvider = ({ children }) => {
-  const [state, setState] = useState({
-    rol: "Usuario",
-  });
+  const storedData = JSON.parse(localStorage.getItem("userData"));
+  const [state, setState] = useState(
+    storedData?.rol
+      ? storedData
+      : {
+          rol: "Usuario",
+        }
+  );
 
   return (
     <UserContext.Provider

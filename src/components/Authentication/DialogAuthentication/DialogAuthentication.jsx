@@ -30,6 +30,7 @@ const DialogAuthentication = ({ isOpen, onClose }) => {
         params: value,
       });
       if (data.length) {
+        localStorage.setItem("userData", JSON.stringify(data[0]));
         setUser(data[0]);
         toast({
           title: "Successful login.",
@@ -69,6 +70,7 @@ const DialogAuthentication = ({ isOpen, onClose }) => {
           : "http://localhost:3000/user/createUser";
       const { data } = await axios.post(url, value);
       if (data) {
+        localStorage.setItem("userData", JSON.stringify(data));
         setUser(data);
         toast({
           title: "Successful Register.",

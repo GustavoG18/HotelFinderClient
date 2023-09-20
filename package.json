@@ -15,11 +15,13 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "axios": "^1.5.0",
+    "country-state-city": "^3.2.0",
     "formik": "^2.4.4",
     "framer-motion": "^10.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
+    "react-select-country-list": "^2.2.3",
     "yup": "^1.2.0"
   },
   "devDependencies": {

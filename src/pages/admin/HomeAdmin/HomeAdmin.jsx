@@ -12,6 +12,7 @@ import {
   Tabs,
   useColorMode,
 } from "@chakra-ui/react";
+import Hotel from "../Hotel/Hotel";
 
 const HomeAdmin = () => {
   const { colorMode } = useColorMode();
@@ -32,7 +33,7 @@ const HomeAdmin = () => {
           </TabList>
           <TabPanels>
             <TabPanel>
-              <p>one!</p>
+              <Hotel />
             </TabPanel>
             <TabPanel>
               <p>two!</p>
