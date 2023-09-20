@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unknown-property */
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
@@ -11,8 +13,6 @@ import {
   NumberInput,
   NumberInputField,
   NumberInputStepper,
-  Wrap,
-  useColorMode,
   useDisclosure,
 } from "@chakra-ui/react";
 import Input from "./Input/Input";
@@ -61,7 +61,7 @@ const SearchBar = ({ location, setLocation, handleSubmit }) => {
         validationSchema={validationSchema}
         onSubmit={(values) => handleSubmit(values, onOpen)}
       >
-        {({ isSubmitting }) => (
+        {() => (
           <Form>
             <HStack
               spacing={2}
