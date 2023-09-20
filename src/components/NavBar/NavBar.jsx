@@ -20,7 +20,7 @@ import * as styles from "./NavBar.styled.js";
 import { useNavigate } from "react-router-dom";
 import ToggleColorMode from "../ToggleColorMode";
 import { useUserContext } from "../../context/UserContext";
-import DialogAuthentication from "../authentication/DialogAuthentication/DialogAuthentication";
+import DialogAuthentication from "../Authentication/DialogAuthentication/DialogAuthentication";
 
 const NavBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
