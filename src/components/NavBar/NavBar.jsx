@@ -31,6 +31,7 @@ const NavBar = () => {
 
   const handleLogOut = () => {
     try {
+      localStorage.setItem("userData", JSON.stringify({}));
       setUser({
         rol: "Usuario",
       });
