@@ -211,7 +211,7 @@ const CreateHotel = ({ hotel = {}, setSelectedHotel, setViewHotels }) => {
             : handleSubmitUpdate
         }
       >
-        {({ isSubmitting, initialValues, setInitialValues }) => (
+        {({ isSubmitting, initialValues }) => (
           <Form
             css={css`
               width: 100%;
