@@ -19,7 +19,6 @@ import * as styles from "./Home.styled.js";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ListRooms from "../components/ListRooms/ListRooms";
-// import SkeletonHotels from "../../components/SkeletonHotels";
 
 const Home = () => {
   const { colorMode } = useColorMode();
