@@ -20,7 +20,7 @@ import SelectCountry from "./SelectCountry/SelectCountry";
 import { useState } from "react";
 import * as Yup from "yup";
 import { Field, Form, Formik } from "formik";
-import DialogAuthentication from "./authentication/DialogAuthentication/DialogAuthentication";
+import DialogAuthentication from "./authentication/DialogAuthentication/DialogAuthentication.jsx";
 
 export const inputClass = css`
   outline: none;
